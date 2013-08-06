@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="chat">
+	<head>
+		<title>Chatter</title>
+
+		<!-- CSS Libs -->
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+		<link href="inc/css/site.css" rel="stylesheet" />
+		
+		<!-- Firebase Conenctions -->
+		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+
+		<!--angular-->
+		<script src="inc/js/angular.js"></script>
+
+		<!--angularFire-->
+		<script src="inc/js/angularFire.js"></script>
+
+		<!--simple login-->
+		<script type='text/javascript'
+        src="https://cdn.firebase.com/v0/firebase-simple-login.js">
+		</script>
+
+	</head>
+	<body>
+		<form ng-submit="addMsg()" class="container" ng-controller="Core">
+			<h1>Hello</h1>
+			
+			<input type="text" id="messageInput" name="messageInput" ng-model="MsgInput"/>
+			<a class="btn btn-large btn-info" id="fbLoginBtn" ng-click="login()">Login with FB!</a>
+			<ul id="messagesDiv" class="list-group">
+				<li class="list-group-item" ng-repeat="msg in messages">{{msg.name}}-{{msg.text}}<li/>
+			</ul>
+		</form> <!-- container -->
+	
+		<!-- Site JS -->
+		<script type="text/javascript" src="inc/js/myJS.js"></script>
+		<!--<script src="inc/js/main.js?v1=1"></script>-->
+	</body>
+</html>
