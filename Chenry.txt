@@ -1,0 +1,23 @@
+Project feature list:
+
+	Store(customers only)
+
+	Shopping cart(v2)
+
+	Chat(Employees only)
+
+	Email(Employees only)
+
+	Work(Employees only)
+		Task manager(Exec/Employees access)
+
+	User login(Facebook login)
+
+	Admin tools(Executive Employees only)
+		employee access, 
+		work hours tracker, 
+		schedule editor,
+		inventory editor,
+		news items editor
+
+		
