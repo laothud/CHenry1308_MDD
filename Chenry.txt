@@ -1,4 +1,4 @@
-Project feature list:
+CHIRY feature list:
 
 	Store(customers only)
 
@@ -13,11 +13,11 @@ Project feature list:
 
 	User login(Facebook login)
 
-	Admin tools(Executive Employees only)
+	Exec tools(Executive Employees only)
 		employee access, 
 		work hours tracker, 
 		schedule editor,
 		inventory editor,
 		news items editor
 
-		
+	Admin(Full access to all feature plus the ability to remove execs and employees)
