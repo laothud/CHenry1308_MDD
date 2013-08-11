@@ -1,23 +1,17 @@
 CHIRY feature list:
+	Chat(Execs/Employees)
 
-	Store(customers only)
+	Email(Execs/Employees)
 
-	Shopping cart(v2)
-
-	Chat(Employees only)
-
-	Email(Employees only)
-
-	Work(Employees only)
+	Work(Execs/Employees)
 		Task manager(Exec/Employees access)
 
 	User login(Facebook login)
 
 	Exec tools(Executive Employees only)
-		employee access, 
+		employee access(add/remove/update),
 		work hours tracker, 
 		schedule editor,
-		inventory editor,
-		news items editor
+		news editor
 
 	Admin(Full access to all feature plus the ability to remove execs and employees)
