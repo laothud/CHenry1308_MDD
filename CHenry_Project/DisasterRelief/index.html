@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="disasterRelief">
+<head>
+<title>Disaster Relief</title>
+
+	<!--Bootstrap CSS file-->
+	<link rel="stylesheet" type="text/css" href="view/js/plugins/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="view/js/plugins/css/bootstrap-glyphicons.css">
+
+	<!--Main CSS file-->
+	<link rel="stylesheet" type="text/css" href="view/css/main.css" media="screen,handheld">
+
+</head>
+
+<body>
+	<div id="wrapper">
+		<nav>
+			<ul>
+				<li class="menuList">
+					<a id="menu"><span class="glyphicon glyphicon-th-list"></span></a>
+				</li>
+				<li id="logo"><a href="index.html"><img src="view/images/logo.png"></a></li>
+				<li><a class="logBtn" href="personnellogin.html">Login</a></li>
+			</ul>
+		</nav>
+
+		<ul class="dropMenu">
+			<li><a href="index.html">Survivor List</a></li>
+			<li><a href="personnellogin.html">Personnel Login</a></li>
+		</ul>
+
+		<div class="content">
+			<section class="col-12 col-sm-8 col-lg-8">
+				<h1>Survivor Login:</h1>
+				<form ng-submit="addSurvivor()" ng-controller="Core">
+					<label for="fullName">Full Name:</label><br/>
+					<input type="text" id="fullName" ng-model="SurvivorName"/><br/><br/>
+					<button type="submit" class="logBtnP">Register</button><br/><br/>
+					Or<br/><br/>
+					<button type="button" class="logBtnP" ng-click="login()">Register with facebook</button>
+				</form>
+			</section>
+			<section class="col-12 col-sm-8 col-lg-8 survivorList">
+				<h1>Survivor List:</h1>
+				<ul>
+					<li class="Odd"><span class="survivorName">Christopher Henry</span><span class="status">Status: Confirmed</span></li>
+					<li class="Even"><span class="survivorName">Christopher Henry</span><span class="status">Status: Confirmed</span></li>
+					<li class="Odd"><span class="survivorName">Christopher Henry</span><span class="status">Status: Confirmed</span></li>
+					<li class="Even"><span class="survivorName">Christopher Henry</span><span class="status">Status: Confirmed</span></li><li class="Odd"><span class="survivorName">Christopher Henry</span><span class="status">Status: Confirmed</span></li>
+					<li class="Even"><span class="survivorName">Christopher Henry</span><span class="status">Status: Confirmed</span></li><li class="Odd"><span class="survivorName">Christopher Henry</span><span class="status">Status: Confirmed</span></li>
+					<li class="Even"><span class="survivorName">Christopher Henry</span><span class="status">Status: Confirmed</span></li><li class="Odd"><span class="survivorName">Christopher Henry</span><span class="status">Status: Confirmed</span></li>
+					<li class="Even"><span class="survivorName">Christopher Henry</span><span class="status">Status: Confirmed</span></li>
+				</ul>
+			</section>
+		</div>
+
+		<footer>&copy;2013 CHenry 1308 MDD Disaster Relief Project</footer>
+	</div>
+	<!--jQuery-->
+	<script type="text/javascript" src="view/js/plugins/jquery-1.8.0.min.js"></script>
+
+	<!-- Firebase Conenctions -->
+	<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+	
+	<!--angular-->
+	<script src="view/js/plugins/angular.js"></script>
+
+	<!--angularFire-->
+	<script src="view/js/plugins/angularFire.min.js"></script>
+
+	<!--simple login-->
+	<script type='text/javascript'  src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
+
+	<!--Main JS-->
+	<script type="text/javascript" src="view/js/main.js"></script>
+</body>
+
+</html>

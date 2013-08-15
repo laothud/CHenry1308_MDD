@@ -1,0 +1,274 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*==========start css==========================================================================================*/
+
+
+body{
+	font-size: 16pt;
+	width: 960px
+	margin: 0 auto;
+}
+
+nav{
+	background-color: #0E3E60;
+	color: white;
+	height: 50px;
+	overflow: hidden;
+	position: fixed;
+	z-index: 10;
+	width: 92%;
+}
+
+nav ul{
+	padding-top: 10px;
+}
+nav li ul li a{
+	color: #0E3E60;
+
+}
+
+nav ul li{
+	width:33%;
+	float:left;
+}
+
+#logo{
+	height: 50px;
+	margin-top: -10px;
+}
+
+.logBtn{
+	text-align: right;
+}
+
+.menuList{
+	
+}
+
+#menu{
+	background-color: #0E3E60;
+	border: 1px solid white;
+	padding: 5px 5px 0 5px;
+	margin-left: 5px;
+}
+
+#wrapper{
+	width: 92%;
+	margin:0 auto;
+	font-size: 1.2em;
+}
+
+.dropMenu{
+	display: none;
+	background-color: white;
+	border-left: 1px solid #0E3E60;
+	border-bottom: 1px solid #0E3E60;
+	border-right: 1px solid #0E3E60;
+	width: 19%;
+	margin-top: -6px;
+	margin-left: 4px;
+	padding: 5px;
+	position: fixed;
+	z-index: 10;
+	top: 49px;
+}
+
+.dropMenu a{
+	width: 263px;
+	display: block;
+	padding: 5px 5px;
+}
+
+.dropMenu a:hover{
+	background-color: #0E3E60;
+	color: white;
+	width: 263px;
+}
+
+footer{
+	background-color: #0E3E60;
+	color: white;
+	height: 40px;
+	overflow: hidden;
+	position: fixed;
+	z-index: 10;
+	width: 92%;
+	bottom: 0;
+	text-align: center;
+	padding-top: .5%;
+}
+
+.content{
+	background-color: #A7A9AB;
+	clear: both;
+	padding-top: 55px;
+	width: 100%;
+	height: 1380px;
+	margin: 0 auto;
+}
+
+section{
+	background-color: #D1D2D4;
+	margin: .3% 17%;
+	padding: 1%;
+}
+
+form{
+	text-align: center;
+	font-size: .7em;
+	margin: .5%;
+}
+
+.Odd{
+	background-color: #939597;
+	height: 25%;
+	overflow: hidden;
+	width: 90%;
+}
+
+.Even{
+	background-color: #ffffff;
+	height: 25%;
+	overflow: hidden;
+	width: 90%;
+}
+
+.survivorList ul{
+	height: 160px;
+	overflow: auto;
+}
+
+.survivorList ul li{
+	font-size: .7em;
+	padding: .5%;
+	float: left;
+}
+
+.status{
+	text-align: right;
+	float: right;
+}
+
+.logBtn {
+	margin-left: 348px;
+	width: 90px;
+	display: block;
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#0e3e60;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #0e3e60;
+}.logBtn:hover {
+	background-color:#09283d;
+	color: white;
+	text-decoration: none;
+}.logBtn:active {
+	position:relative;
+	top:1px;
+}
+
+.logBtnP {
+	width: 30%;
+	display: block;
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#0e3e60;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #0e3e60;
+}.logBtnP:hover {
+	background-color:#09283d;
+	color: white;
+	text-decoration: none;
+}.logBtnP:active {
+	position:relative;
+	top:1px;
+}
+
+
+@media handheld{
+	html{
+		width: 10px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

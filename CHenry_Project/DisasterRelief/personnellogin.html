@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Disaster Relief</title>
+
+	<!--Bootstrap CSS file-->
+	<link rel="stylesheet" type="text/css" href="view/js/plugins/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="view/js/plugins/css/bootstrap-glyphicons.css">
+
+	<!--Main CSS file-->
+	<link rel="stylesheet" type="text/css" href="view/css/main.css">
+	<!-- Firebase Conenctions -->
+	<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+	
+	<!--angular-->
+	<script src="view/js/plugins/angular.js"></script>
+
+	<!--angularFire-->
+	<script src="view/js/plugins/angularFire.min.js"></script>
+
+	<!--simple login-->
+	<script type='text/javascript'  src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<nav>
+			<ul>
+				<li class="menuList">
+					<span id="menu"class="glyphicon glyphicon-th-list"></span>
+				</li>
+				<li id="logo"><a href="index.html"><img src="view/images/logo.png"></a></li>
+				<li class="logBtn"><a href="personnellogin.html">Login</a></li>
+			</ul>
+		</nav>
+
+		<ul class="dropMenu">
+			<li><a href="index.html">Survivor List</a></li>
+			<li><a href="personnellogin">Personnel Login</a></li>
+		</ul>
+
+		<div class="content">
+			<section class="col-12 col-sm-8 col-lg-8">
+				<h1>Personnel Login:</h1>
+				<form>
+					<label for="userName">Username:</label><br/>
+					<input type="text" id="userName"/><br/><br/>
+					<label for="password">Password:</label><br/>
+					<input type="text" id="password"/><br/><br/>
+					<button type="submit" class="logBtnP">Login</button>
+				</form>
+			</section>
+		</div>
+
+		<footer>&copy;2013 CHenry 1308 MDD Disaster Relief Project</footer>
+	</div>
+</body>
+
+</html>
