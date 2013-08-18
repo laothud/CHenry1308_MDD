@@ -1,0 +1,29 @@
+<nav>
+	<ul>
+		<li class="menuList">
+			<a id="menu" ng-click="dispToggle=!dispToggle"><span class="glyphicon glyphicon-th-list"></span></a>
+		</li>
+		<li id="logo" ><a href="#/" ><img src="view/images/logo.png"></a></li>
+		<li><a class="btn btn-info myBtn" href="#/personnellogin">Login</a></li>
+	</ul>
+</nav>
+
+<ul class="dropMenu"  ng-show="dispToggle">
+	<li><a href="#/">Survivor List</a></li>
+	<li><a href="#/personnellogin">Personnel Login</a></li>
+</ul>
+
+<div class="content" ng-controller="Login">
+	<section class="col-12 col-sm-8 col-lg-8">
+		<h1>Personnel Login:</h1>
+		<form ng-submit="userlogin()">
+			<label for="userName">Username:</label><br/>
+			<input type="text" id="userName" ng-model="username"/><br/><br/>
+			<label for="password">Password:<span id="hidePass" ng-click="hide=!hide">Hide password</span></label><br/>
+			<input type="{{myClass}}" id="password" ng-model="password"/><br/><br/>
+			<button type="submit" class="btn btn-info myBtnC">Login</button>
+		</form>
+	</section>
+</div>
+
+<footer>&copy;2013 CHenry 1308 MDD Disaster Relief Project</footer>
