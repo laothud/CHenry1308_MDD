@@ -104,12 +104,13 @@ var disasterRelief = angular.module('disasterRelief', ['firebase'])
 
 	$scope.addUser = function(){
 		//add user to database as admin and to the email databse.
-		auth.createUser($scope.email, $scope.pass, function(error, user) {
+		auth.createUser($scope.email, $scope.password, function(error, user) {
 		  if (!error) {
 		  	if($scope.admin){
 		  		console.log('User Id: ' + user.id + ', Email: ' + user.email);
 		    	$scope.users.add({id: user.id, email: user.email});
 		  	}else{
+		  		$scope.users.add({id: user.id, email: user.email});
 		  		console.log('User Id: ' + user.id + ', Email: ' + user.email);
 		  	}
 		  }else{

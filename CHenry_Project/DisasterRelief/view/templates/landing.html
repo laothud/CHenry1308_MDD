@@ -36,7 +36,7 @@
 			<div class="panel-body">
 				<ul class="list-group">
 					<!--Loop to create list from database of survivors-->
-					<li class="list-group-item" ng-repeat="svr in survivors | filter:nameText | orderBy:'name'">{{svr}}<span class="survivorName">{{svr.name}}</span><span class="status">{{svr.status}}</span><li/>					
+					<li class="list-group-item" ng-repeat="svr in survivors | filter:nameText | orderBy:'name'"><span class="survivorName">{{svr.name}}</span><span class="status">{{svr.status}}</span><li/>					
 				</ul>
 			</div>
 		</div>
