@@ -1,6 +1,6 @@
 <nav>
 	<ul>
-		<li class="menuList">
+		<li class="menuList" style="width: 15%;">
 			<a id="menu" ng-click="dispToggle=!dispToggle"><span class="glyphicon glyphicon-th-list"></span></a>
 		</li>
 		<li id="logo" ><a href="#/" ><img src="view/images/logo.png"></a></li>
@@ -13,33 +13,32 @@
 	<li><a href="#/personnellogin">Personnel Login</a></li>
 </ul>
 
-<div class="content">
+<div class="content col-12 col-sm-12 col-lg-8">
 
-	<section class="col-12 col-sm-8 col-lg-8">
+	<section class="col-12 col-sm-12 col-lg-12">
 		<h1>Survivor Login:</h1>
 		<form ng-submit="addSurvivor()" ng-controller="Core">
 			<label for="fullName">Full Name:</label><br/>
 			<input type="text" id="fullName" ng-model="SurvivorName"/><br/><br/>
 			<button type="submit" class="myBtnC btn btn-info">Register</button><br/><br/>
-			Or<br/><br/>
-			<button type="button" class="myBtnC btn btn-info" ng-click="login()">Register with facebook</button>
+			Or<br/>with FaceBook<br/><br/>
+			<button type="button" class="myBtnC btn btn-info" ng-click="login()">Register</button>
 		</form>
 	</section>
 
-	<section class="col-12 col-sm-8 col-lg-8 survivorList" ng-controller="Core">
+	<section class="col-12 col-sm-12 col-lg-12 survivorList" ng-controller="Core">
 		<h1>Survivor List:</h1>
-		<p class="note">(If your status is unconfirmed please bring an photo ID to emergency personnel.)</p>
 		<p class="note">(Survivor list is in Alphebetical order by the Name.)</p>
 			<form>
 				<label for="search">Search</label><br>
 				<input type="text" id="search" ng-model="nameText"><br><br>
 			</form>
 		<div class="panel">
-				<div class="panel-heading"><span class="survivorName">Name</span><span class="status">Status</span></div>
+				<div class="panel-heading"><span class="survivorName">Name</span></div>
 			<div class="panel-body">
 				<ul class="list-group">
 					<!--Loop to create list from database of survivors-->
-					<li class="list-group-item" ng-repeat="svr in survivors | filter:nameText | orderBy:'name'"><span class="survivorName">{{svr.name}}</span><span class="status">{{svr.status}}</span><li/>					
+					<li class="list-group-item" ng-repeat="svr in survivors | filter:nameText | orderBy:'name'"><span class="survivorName">{{svr.name}}</span><li/>					
 				</ul>
 			</div>
 		</div>

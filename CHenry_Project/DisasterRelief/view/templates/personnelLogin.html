@@ -1,6 +1,6 @@
 <nav>
 	<ul>
-		<li class="menuList">
+		<li class="menuList" style="width: 15%;">
 			<a id="menu" ng-click="dispToggle=!dispToggle"><span class="glyphicon glyphicon-th-list"></span></a>
 		</li>
 		<li id="logo" ><a href="#/" ><img src="view/images/logo.png"></a></li>
@@ -13,8 +13,9 @@
 	<li><a href="#/personnellogin">Personnel Login</a></li>
 </ul>
 
-<div class="content" ng-controller="Login">
-	<section class="col-12 col-sm-8 col-lg-8">
+<div class="content col-12 col-sm-12 col-lg-8" ng-controller="Login">
+
+	<section class="col-12 col-sm-12 col-lg-12">
 		<h1>Personnel Login:</h1>
 		<form ng-submit="userlogin()">
 			<label for="email">Email:</label><br/>

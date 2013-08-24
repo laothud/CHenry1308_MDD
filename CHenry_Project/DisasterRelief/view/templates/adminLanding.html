@@ -1,1 +1,57 @@
-<h1>Admin Landing Page</h1>
+<nav>
+	<ul>
+		<li class="menuList" style="width: 15%;">
+			<a id="menu" ng-click="dispToggle=!dispToggle"><span class="glyphicon glyphicon-th-list"></span></a>
+		</li>
+		<li id="logo" ><a href="#/" ><img src="view/images/logo.png"></a></li>
+		<li><a class="btn btn-info myBtn" ng-click="logout()">Logout</a></li>
+	</ul>
+</nav>
+
+
+<ul class="dropMenu"  ng-show="dispToggle">
+	<li><a href="#">No Navigation</a></li>
+</ul>
+
+<div class="content col-12 col-sm-12 col-lg-8" ng-controller="Login">
+	<section class="col-12 col-sm-12 col-lg-12">
+		<h1>Add Personnel:</h1>
+		<form ng-submit="addUser()">
+			<label for="email">Email:</label><br/>
+			<input type="text" id="email" ng-model="email"/><br/><br/>
+			<label for="password">Password:</label><br/>
+			<input type="text" id="password" ng-model="password"/><br/><br/>
+			<button type="submit" class="btn btn-info myBtnC">Add</button>
+		</form>
+	</section>
+
+	<section class="col-12 col-sm-12 col-lg-12">
+		<h1>Add Survivor:</h1>
+		<form ng-submit="addSurvivor()" ng-controller="Core">
+			<label for="fullName">Full Name:</label><br/>
+			<input type="text" id="fullName" ng-model="SurvivorName"/><br/><br/>
+			<button type="submit" class="myBtnC btn btn-info">Register</button><br/><br/>
+		</form>
+	</section>
+
+	<section class="col-12 col-sm-12 col-lg-12 survivorList" ng-controller="Core">
+		<h1>Survivor List:</h1>
+		<p class="note">(Survivor list is in Alphebetical order by the Name.)</p>
+			<form>
+				<label for="search">Search</label><br>
+				<input type="text" id="search" ng-model="nameText"><br><br>
+			</form>
+		<div class="panel">
+				<div class="panel-heading"><span class="survivorName">Name</span></div>
+			<div class="panel-body">
+				<ul class="list-group">
+					<!--Loop to create list from database of survivors-->
+					<li class="list-group-item" ng-repeat="svr in survivors | filter:nameText | orderBy:'name'"><span class="survivorName">{{svr.name}}</span><li/>					
+				</ul>
+			</div>
+		</div>
+	</section>
+	
+</div>
+
+<footer>&copy;2013 CHenry 1308 MDD Disaster Relief Project</footer>

@@ -48,14 +48,14 @@ table {
 
 body{
 	font-size: 16pt;
-	width: 960px
+	width: 480px
 	margin: 0 auto;
 }
 
 nav{
 	background-color: #0E3E60;
 	color: white;
-	height: 50px;
+	height: 100px;
 	overflow: hidden;
 	position: fixed;
 	z-index: 10;
@@ -71,7 +71,7 @@ nav li ul li a{
 }
 
 nav ul li{
-	width: 42%;
+	width:33%;
 	float:left;
 }
 
@@ -142,7 +142,6 @@ footer{
 	bottom: 0;
 	text-align: center;
 	padding-top: .5%;
-	font-size: .7em;
 }
 
 .content{
@@ -150,7 +149,8 @@ footer{
 	clear: both;
 	padding-top: 55px;
 	width: 100%;
-	padding-bottom: 55px;
+	height: 780px;
+	margin: 0 auto;
 }
 
 .note{
@@ -161,8 +161,7 @@ footer{
 
 section{
 	background-color: #D1D2D4;
-	margin-top: 1%;
-	margin-bottom: 1%;
+	margin: .3% 17%;
 	padding: 1%;
 }
 
@@ -174,9 +173,9 @@ form{
 
 .Even{
 	background-color: #ffffff;
-	font-size: .8em;
+	height: 25%;
+	overflow: hidden;
 	width: 90%;
-	height: 50px;
 	border: 1px solid black;
 }
 
@@ -194,7 +193,7 @@ form{
 	color:#ffffff;
 	background-color: #0e3e60;
 	border: 1px solid white;
-	float: right;
+	width: 30%;
 	text-align: center;
 	margin-left: 71%;
 	margin-top: -0.5%;
@@ -204,20 +203,9 @@ form{
 	color:#ffffff;
 	background-color: #0e3e60;
 	border: 1px solid white;
+	width: 30%;
 	text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

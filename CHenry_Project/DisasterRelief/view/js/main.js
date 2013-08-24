@@ -1,6 +1,11 @@
-var disasterRelief = angular.module('disasterRelief', ['firebase'])
+var disasterRelief = angular.module('disasterRelief', ['firebase']);
 
-.config(function ($routeProvider){
+disasterRelief.run(['angularFireAuth', function(angularFireAuth){
+	var url = "https://chrishenry.firebaseio.com/";
+	angularFireAuth.initialize(url, {'name':'user', 'path':'/'});
+}]);
+
+disasterRelief.config(function ($routeProvider){
 	$routeProvider
 	.when("/",{
 		controller:"Core",
@@ -14,28 +19,21 @@ var disasterRelief = angular.module('disasterRelief', ['firebase'])
 
 	.when("/landing", {
 		controller:"Core",
-		templateUrl:"view/templates/landing.html"
+		templateUrl:"view/templates/landing.html",
+		authRequired: true	
 	})
 
 	.when("/adminLanding", {
 		controller:"Core",
-		templateUrl:"view/templates/adminLanding.html"
-	})
-
-	.when("/hours", {
-		controller:"Core",
-		templateUrl:"view/templates/hours.html"
+		templateUrl:"view/templates/adminLanding.html",
+		authRequired: true
 	})
 
 	.otherwise({redirectTo:"/"});
 })
 
-.controller('Core', ['$scope', 'angularFireCollection', function mtCtrl($scope, angularFireCollection){
+.controller('Core', ['$scope', 'angularFireCollection', 'angularFireAuth', function mtCtrl($scope, angularFireCollection, angularFireAuth){
 	var url = 'https://chrishenry.firebaseio.com/disasterRelief/survivors';
-
-	//
-	//create a check login setup to ensure site security.
-	//
 
 	 //Gets the messages from firebase.
 	$scope.survivors = angularFireCollection(url, $scope, 'survivors', []);
@@ -73,16 +71,15 @@ var disasterRelief = angular.module('disasterRelief', ['firebase'])
 		auth.login('facebook');
 	}
 
-
-	$scope.userLogout = function (){
-		//delete session data and return to login.
-		console.log("Logout");
-		auth.logout();
+	$scope.logout = function(){
+		console.log('user signed out');
+		angularFireAuth.logout();
+		$scope.user = null;
 		window.location = "#/"
-	}
+	};
 }])
 
-.controller('Login',['$scope', 'angularFireCollection', function mtCtrl($scope, angularFireCollection){
+.controller('Login',['$scope', 'angularFireCollection', 'angularFireAuth','$location', function mtCtrl($scope, angularFireCollection, angularFireAuth,$location){
 	var url = 'https://chrishenry.firebaseio.com/disasterRelief/users';
 
 	var myConn 	= new Firebase('https://chrishenry.firebaseio.com/disasterRelief/users');
@@ -91,55 +88,60 @@ var disasterRelief = angular.module('disasterRelief', ['firebase'])
 	$scope.users = angularFireCollection(url, $scope, 'users', []);
 
 	var auth = new FirebaseSimpleLogin(myConn, function(error, user) {
-		if (user) {
-			
-		};
 	});
-
-	$scope.addAdmin = function (){
-		if (user.id != users[i].id) {
-			$scope.users.add({id: user.id, email: user.email})
-		};
-	}
 
 	$scope.addUser = function(){
 		//add user to database as admin and to the email databse.
 		auth.createUser($scope.email, $scope.password, function(error, user) {
 		  if (!error) {
-		  	if($scope.admin){
-		  		console.log('User Id: ' + user.id + ', Email: ' + user.email);
-		    	$scope.users.add({id: user.id, email: user.email});
-		  	}else{
-		  		$scope.users.add({id: user.id, email: user.email});
-		  		console.log('User Id: ' + user.id + ', Email: ' + user.email);
-		  	}
+		  	$scope.email="";
+		  	$scope.password="";
 		  }else{
+		  	$scope.email="";
+		  	$scope.password="";
 		  	console.log(error);
 		  }
 		});
 	}
 
-	$scope.userlogin = function (){
+	$scope.userlogin = function(){
+		var admin = false;
 
 		for (var i = $scope.users.length - 1; i >= 0; i--) {
 			if ($scope.users[i].email == $scope.email) {
-				auth.login('password', {
-				  email: $scope.email,
-				  password: $scope.password
-				});
-				window.location = "#/landing";
-				console.log("login clicked");
-			}else{
-				auth.login('password', {
-				  email: $scope.email,
-				  password: $scope.password
-				});
-				window.location = "#/landing";
-				console.log("login clicked");
-			};
+				admin=true;
+			}
+		};
+
+		if (admin) {
+			angularFireAuth.login('password', {
+			  email: $scope.email,
+			  password: $scope.password
+			}).then(function(e)
+			{
+				// when login is successfull
+				$location.path("/adminLanding");
+			},function(error)
+			{
+				// when login fails
+				$location.path("/personnellogin");
+			});
 			
+			console.log("login clicked");
+		}else{
+			angularFireAuth.login('password', {
+			  email: $scope.email,
+			  password: $scope.password
+			}).then(function(e)
+			{
+				// when login is successfull
+				$location.path("/landing");
+			},function(error)
+			{
+				// when login fails
+				$location.path("/personnellogin");
+			});
 		};
 	}
-
-}])
+ }])
 
