@@ -1,4 +1,4 @@
-<nav>
+<nav class="container">
 	<ul>
 		<li class="menuList" style="width: 15%;">
 			<a id="menu" ng-click="dispToggle=!dispToggle"><span class="glyphicon glyphicon-th-list"></span></a>
@@ -17,9 +17,13 @@
 
 	<section class="col-12 col-sm-12 col-lg-12">
 		<h1>Add Survivor:</h1>
-		<form ng-submit="addSurvivor()" ng-controller="Core">
+		<form ng-submit="addManuelSurvivor()" ng-controller="Core">
 			<label for="fullName">Full Name:</label><br/>
-			<input type="text" id="fullName" ng-model="SurvivorName"/><br/><br/>
+			<input type="text" id="fullName" class="form-control" ng-model="SurvivorName"/><br/><br/>
+			<label for="fullName">Id Number:</label><br/>
+			<input type="text" id="fullName" class="form-control" ng-model="SurvivorDL"/><br/><br/>
+			<label for="fullName">Date of Birth:</label><br/>
+			<input type="date" id="fullName" class="form-control" ng-model="SurvivorDOB"/><br/><br/>
 			<button type="submit" class="myBtnC btn btn-info">Register</button><br/><br/>
 		</form>
 	</section>
@@ -28,15 +32,15 @@
 		<h1>Survivor List:</h1>
 		<p class="note">(Survivor list is in Alphebetical order by the Name.)</p>
 			<form>
-				<label for="search">Search</label><br>
-				<input type="text" id="search" ng-model="nameText"><br><br>
+				<label for="search">Search:</label><br>
+				<input type="text" class="form-control" id="search" ng-model="nameText"><br><br>
 			</form>
 		<div class="panel">
-				<div class="panel-heading"><span class="survivorName">Name</span></div>
+				<div class="panel-heading"><span class="survivorName">Name</span> | <span class="status">Status</span></div>
 			<div class="panel-body">
 				<ul class="list-group">
 					<!--Loop to create list from database of survivors-->
-					<li class="list-group-item" ng-repeat="svr in survivors | filter:nameText | orderBy:'name'"><span class="survivorName">{{svr.name}}</span><li/>					
+					<li class="list-group-item" ng-repeat="svr in survivors | filter:nameText | orderBy:'name'"><span class="survivorName"><a href={{svr.href}} target="_blank">{{svr.name}}</a></span> | <span class="status">{{svr.status}}</span><li/>					
 				</ul>
 			</div>
 		</div>
@@ -44,4 +48,4 @@
 
 </div>
 
-<footer>&copy;2013 CHenry 1308 MDD Disaster Relief Project</footer>
+<footer class="container">&copy;2013 CHenry 1308 MDD Disaster Relief Project</footer>

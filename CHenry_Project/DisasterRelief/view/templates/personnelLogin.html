@@ -1,4 +1,4 @@
-<nav>
+<nav class="container">
 	<ul>
 		<li class="menuList" style="width: 15%;">
 			<a id="menu" ng-click="dispToggle=!dispToggle"><span class="glyphicon glyphicon-th-list"></span></a>
@@ -11,20 +11,20 @@
 <ul class="dropMenu"  ng-show="dispToggle">
 	<li><a href="#/">Survivor List</a></li>
 	<li><a href="#/personnellogin">Personnel Login</a></li>
-</ul>
+</ul><br/>
 
 <div class="content col-12 col-sm-12 col-lg-8" ng-controller="Login">
 
 	<section class="col-12 col-sm-12 col-lg-12">
-		<h1>Personnel Login:</h1>
+		<h1>Personnel Login:</h1><br/>
 		<form ng-submit="userlogin()">
 			<label for="email">Email:</label><br/>
-			<input type="text" id="email" ng-model="email"/><br/><br/>
+			<input type="text" id="email" class="form-control" ng-model="email"/><br/><br/>
 			<label for="password">Password:</label><br/>
-			<input type="text" id="password" ng-model="password"/><br/><br/>
+			<input type="password" id="password" class="form-control" ng-model="password"/><br/><br/>
 			<button type="submit" class="btn btn-info myBtnC">Login</button>
 		</form>
 	</section>
 </div>
 
-<footer>&copy;2013 CHenry 1308 MDD Disaster Relief Project</footer>
+<footer class="container">&copy;2013 CHenry 1308 MDD Disaster Relief Project</footer>

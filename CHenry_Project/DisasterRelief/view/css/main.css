@@ -48,7 +48,7 @@ table {
 
 body{
 	font-size: 16pt;
-	width: 960px
+	font-family: Arial, Helvetica, sans-serif;
 	margin: 0 auto;
 }
 
@@ -59,7 +59,7 @@ nav{
 	overflow: hidden;
 	position: fixed;
 	z-index: 10;
-	width: 92%;
+	width: 100%;
 }
 
 nav ul{
@@ -77,7 +77,10 @@ nav ul li{
 
 #logo{
 	height: 50px;
-	margin-top: -10px;
+}
+
+#logo a img{
+	width: 32px;
 }
 
 .logBtn{
@@ -138,15 +141,15 @@ footer{
 	overflow: hidden;
 	position: fixed;
 	z-index: 10;
-	width: 92%;
+	width: 100%;
 	bottom: 0;
 	text-align: center;
-	padding-top: .5%;
+	line-height: 40px;
 	font-size: .7em;
 }
 
 .content{
-	background-color: #A7A9AB;
+	background-color: #f0f0f0;
 	clear: both;
 	padding-top: 55px;
 	width: 100%;
@@ -163,7 +166,7 @@ section{
 	background-color: #D1D2D4;
 	margin-top: 1%;
 	margin-bottom: 1%;
-	padding: 1%;
+	padding: 2%;
 }
 
 form{
@@ -187,7 +190,6 @@ form{
 
 .status{
 	text-align: right;
-	float: right;
 }
 
 .myBtn {
@@ -205,12 +207,18 @@ form{
 	background-color: #0e3e60;
 	border: 1px solid white;
 	text-align: center;
+	width: 75%;
 }
 
 
+.form-control{
+	margin: 0 auto;
+	width: 75%;
+}
 
-
-
+label{
+	margin-bottom: .7%;
+}
 
 
 

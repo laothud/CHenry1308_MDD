@@ -1,4 +1,4 @@
-<nav>
+<nav class="container">
 	<ul>
 		<li class="menuList" style="width: 15%;">
 			<a id="menu" ng-click="dispToggle=!dispToggle"><span class="glyphicon glyphicon-th-list"></span></a>
@@ -16,13 +16,9 @@
 <div class="content col-12 col-sm-12 col-lg-8">
 
 	<section class="col-12 col-sm-12 col-lg-12">
-		<h1>Survivor Login:</h1>
+		<h1>Survivor Registration:</h1>
 		<form ng-submit="addSurvivor()" ng-controller="Core">
-			<label for="fullName">Full Name:</label><br/>
-			<input type="text" id="fullName" ng-model="SurvivorName"/><br/><br/>
-			<button type="submit" class="myBtnC btn btn-info">Register</button><br/><br/>
-			Or<br/>with FaceBook<br/><br/>
-			<button type="button" class="myBtnC btn btn-info" ng-click="login()">Register</button>
+			<button type="button" class="myBtnC btn btn-info" style="background-color:#3B5998" ng-click="login()">Facebook Registration</button>
 		</form>
 	</section>
 
@@ -30,15 +26,15 @@
 		<h1>Survivor List:</h1>
 		<p class="note">(Survivor list is in Alphebetical order by the Name.)</p>
 			<form>
-				<label for="search">Search</label><br>
-				<input type="text" id="search" ng-model="nameText"><br><br>
+				<label for="search">Search:</label><br>
+				<input type="text" class="form-control" id="search" ng-model="nameText" placeholder="Search..."><br><br>
 			</form>
 		<div class="panel">
-				<div class="panel-heading"><span class="survivorName">Name</span></div>
+				<div class="panel-heading"><span class="survivorName">Name</span> | <span class="status">Status</span></div>
 			<div class="panel-body">
 				<ul class="list-group">
 					<!--Loop to create list from database of survivors-->
-					<li class="list-group-item" ng-repeat="svr in survivors | filter:nameText | orderBy:'name'"><span class="survivorName">{{svr.name}}</span><li/>					
+					<li class="list-group-item" ng-repeat="svr in survivors | filter:nameText | orderBy:'name'"><span class="survivorName"><a href={{svr.href}} target="_blank">{{svr.name}}</a></span> | <span class="status">{{svr.status}}</span><li/>					
 				</ul>
 			</div>
 		</div>
@@ -46,4 +42,4 @@
 
 </div>
 
-<footer>&copy;2013 CHenry 1308 MDD Disaster Relief Project</footer>
+<footer class="container">&copy;2013 CHenry 1308 MDD Disaster Relief Project</footer>

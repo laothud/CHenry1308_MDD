@@ -29,14 +29,20 @@ disasterRelief.config(function ($routeProvider){
 		authRequired: true
 	})
 
+	.when("/confirm", {
+		controller:"Core",
+		templateUrl:"view/templates/confirm.html"
+	})
+
 	.otherwise({redirectTo:"/"});
 })
 
 .controller('Core', ['$scope', 'angularFireCollection', 'angularFireAuth', function mtCtrl($scope, angularFireCollection, angularFireAuth){
 	var url = 'https://chrishenry.firebaseio.com/disasterRelief/survivors';
 
-	 //Gets the messages from firebase.
+	 //Gets the survivors from firebase.
 	$scope.survivors = angularFireCollection(url, $scope, 'survivors', []);
+
 	var fbUser;
 	var clicked=false;
 
@@ -50,20 +56,22 @@ disasterRelief.config(function ($routeProvider){
 			$scope.addSurvivorFB();
 		}
 	});
+
+	var url2 = 'https://chrishenry.firebaseio.com/disasterRelief/users';
+	$scope.users = angularFireCollection(url2, $scope, 'users', []);
 	
 	$scope.addSurvivorFB = function (){
-		$scope.survivors.add({name: fbUser.name, status:"Unconfirmed"});
+		console.log(fbUser);
+		$scope.survivors.add({name: fbUser.name, status:"Confirmed", href:fbUser.link});
 		$scope.SurvivorName = "";
 	}
 
-	$scope.addSurvivor = function (){
-		$scope.survivors.add({name: $scope.SurvivorName, status:"Unconfirmed"});
+	$scope.addManuelSurvivor = function (){
+		console.log("clicked manuel add")
+		$scope.survivors.add({name: $scope.SurvivorName, status:"Confirmed", href:"#/confirm", dl: $scope.SurvivorDL, dob: $scope.SurvivorDOB});
 		$scope.SurvivorName = "";
-	}
-
-	$scope.addSurvivorUser = function (){
-		$scope.survivors.add({name: $scope.SurvivorName, status:"Confirmed"});
-		$scope.SurvivorName = "";
+		$scope.SurvivorDL = "";
+		$scope.SurvivorDOB = "";
 	}
 
 	$scope.login = function(){
@@ -76,6 +84,11 @@ disasterRelief.config(function ($routeProvider){
 		angularFireAuth.logout();
 		$scope.user = null;
 		window.location = "#/"
+	};
+
+	$scope.deleteSurvivor = function(myid){
+		console.log("delete clicked and id is: "+ myid)
+		$scope.survivors.remove(myid);
 	};
 }])
 
@@ -90,29 +103,33 @@ disasterRelief.config(function ($routeProvider){
 	var auth = new FirebaseSimpleLogin(myConn, function(error, user) {
 	});
 
+	$scope.errordisplay = false;
+
 	$scope.addUser = function(){
 		//add user to database as admin and to the email databse.
 		auth.createUser($scope.email, $scope.password, function(error, user) {
 		  if (!error) {
+		  	errordisplay = false;
 		  	$scope.email="";
 		  	$scope.password="";
+		  	$scope.msg ="Added user to the database";
 		  }else{
 		  	$scope.email="";
 		  	$scope.password="";
-		  	console.log(error);
+		  	$scope.errordisplay = true;
+		  	$scope.myerror = error.code;
 		  }
 		});
 	}
 
 	$scope.userlogin = function(){
+		//user login for the personnel page
 		var admin = false;
-
 		for (var i = $scope.users.length - 1; i >= 0; i--) {
 			if ($scope.users[i].email == $scope.email) {
 				admin=true;
 			}
 		};
-
 		if (admin) {
 			angularFireAuth.login('password', {
 			  email: $scope.email,
